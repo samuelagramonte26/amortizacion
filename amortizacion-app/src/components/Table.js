@@ -3,10 +3,24 @@ import React, { useRef } from 'react'
 export const Table = ({ data }) => {
     const tabla = useRef();
     const print = e => {
-        console.log(tabla.current.innerHTML)
+   
+        let content =tabla.current.innerHTML ;
+        window.document.write(content);
+         window.document.close();
+     
+         const head = window.document.getElementsByTagName("head");
+         head[0].innerHTML =  `<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">`;
+      setTimeout(()=>{
+           window.print();
+         window.close();
+       window.location = "/";
+      },500)
     }
     return (
         <div className='container mt-5'>
+           
+            <div ref={tabla}>
             <div className='row'>
                 <div className='col-4 border border-info rounded-3 p-3'>
                     <h5>Cuota mensual: <span className='text-black-50'>{data["cuota"].toFixed(2)}</span></h5>
@@ -15,7 +29,6 @@ export const Table = ({ data }) => {
                     <h5>Monto del prestamo:  <span className='text-black-50'>{data["monto"]}</span></h5>
                 </div>
             </div>
-            <div ref={tabla}>
                 <table className='table table-hover mt-3'>
                     <caption>Amortizacion</caption>
                     <thead className='table-secondary'>
