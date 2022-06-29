@@ -1,4 +1,5 @@
 export const cal = (e, datos, set) => {
+
   e.preventDefault();
   const { monto, interes, plazo } = datos;
   const taza = (interes / 12) / 100;
