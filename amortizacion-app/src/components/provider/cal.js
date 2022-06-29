@@ -1,6 +1,6 @@
-export const cal = (e, datos, set) => {
+export const cal = ( datos, set) => {
 
-  e.preventDefault();
+ 
   const { monto, interes, plazo } = datos;
   const taza = (interes / 12) / 100;
   const cuota = (monto * ((Math.pow((1 + taza), plazo) * taza) / (Math.pow((1 + taza), plazo) - 1)));

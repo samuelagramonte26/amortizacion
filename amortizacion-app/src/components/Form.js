@@ -14,6 +14,8 @@ export const Form = ({ cal, set }) => {
     const plazoD = useRef();
     const monto = useRef();
     const validar = (e) => {
+        e.preventDefault();
+
         const mensaje = "Debe colocar un valor valido!";
         let result = false;
         if (monto.current.value === "") {
@@ -38,8 +40,8 @@ export const Form = ({ cal, set }) => {
 
         }
         if (result) return;
-        console.log(result)
-        cal(e, datos, set)
+       // console.log(result)
+        cal( datos, set)
 
     }
     return (
