@@ -6,7 +6,7 @@ export const About = () => {
       <div className='container'>
         <h1>Acerca de</h1>
         <p>
-            Esta pagina simula la proyeccion de las cuotas de pago de un prestamo, la misma etsa hecha en <b>React,</b>
+            &Eacute;sta pagina simula la proyecci&oacute;n de las cuotas de pago de un prestamo, la misma est&aacute; hecha en <b>React, </b>
             construida por <i><b>Ing. Samuel Agramonte.</b></i>
 
         </p>

@@ -2,6 +2,10 @@ import React, { useRef } from 'react'
 
 export const Table = ({ data }) => {
     const tabla = useRef();
+    const cuota   = new Intl.NumberFormat('en-IN', {style: 'currency',currency: 'USD', minimumFractionDigits: 2}).format(data["cuota"])
+    const monto   = new Intl.NumberFormat('en-IN', {style: 'currency',currency: 'USD', minimumFractionDigits: 2}).format(data["monto"])
+    const interes   = new Intl.NumberFormat('en-IN', {style: 'currency',currency: 'USD', minimumFractionDigits: 2}).format(data["totalInteres"])
+     
     const print = e => {
    
         let content =tabla.current.innerHTML ;
@@ -22,11 +26,12 @@ export const Table = ({ data }) => {
            
             <div ref={tabla}>
             <div className='row'>
-                <div className='col-4 border border-info rounded-3 p-3'>
-                    <h5>Cuota mensual: <span className='text-black-50'>{data["cuota"].toFixed(2)}</span></h5>
-                    <h5>Total de interes:  <span className='text-black-50'>{data["totalInteres"].toFixed(2)}</span></h5>
+                
+                <div className='col-12 border border-info rounded-3 p-3'>
+                    <h5>Cuota mensual: <span className='text-black-50'>{cuota}</span></h5>
+                    <h5>Total de interes:  <span className='text-black-50'>{interes}</span></h5>
                     <h5>Total de pagos:  <span className='text-black-50'>{data["pagos"]}</span></h5>
-                    <h5>Monto del prestamo:  <span className='text-black-50'>{data["monto"]}</span></h5>
+                    <h5>Monto del prestamo:  <span className='text-black-50'>{monto}</span></h5>
                 </div>
             </div>
                 <table className='table table-hover mt-3'>
@@ -44,10 +49,11 @@ export const Table = ({ data }) => {
                             data.map((data, i) => {
                                 return (
                                     <tr key={i + 1}>
-                                        <td>{data.c}</td>
-                                        <td>{data.i}</td>
-                                        <td>{data.a}</td>
-                                        <td>{data.s}</td>
+                                        <td>{(new Intl.NumberFormat('en-In',{style:'currency',currency:'USD',minimumFractionDigits:2}).format(data.c))}</td>
+                                        <td>{(new Intl.NumberFormat('en-In',{style:'currency',currency:'USD',minimumFractionDigits:2}).format(data.i))}</td>
+                                        <td>{(new Intl.NumberFormat('en-In',{style:'currency',currency:'USD',minimumFractionDigits:2}).format(data.a))}</td>
+                                        <td>{(new Intl.NumberFormat('en-In',{style:'currency',currency:'USD',minimumFractionDigits:2}).format(data.s))}</td>
+                                       
                                     </tr>
                                 )
                             })

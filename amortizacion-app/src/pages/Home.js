@@ -9,7 +9,7 @@ export const Home = () => {
         <section className=''>
             <h1 className='text-center'>Bienvenido</h1>
             <div className='container'>
-                <h4>Simulacion de amortizador de prestamos.</h4>
+                <h4>Simulaci&oacute;n de amortizador de prestamos.</h4>
                 <Form cal={cal} set={setData} />
                 {
                     data.length > 0 &&
